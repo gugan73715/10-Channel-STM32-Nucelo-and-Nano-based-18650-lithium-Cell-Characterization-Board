@@ -1,7 +1,7 @@
 Description,Designator,Footprint,JLCPCB Part #
 ,,,
-"Chip Capacitor, 100 nF, +/- 10%, 50 V, 0805 (2012 Metric)","C1, C2, C3, C4, C12, C14, C15, C16, C17, C18, C19, C20, C23, C24, C25",CAPC2013X95X50LL10T25,C28233
-"Chip Multilayer Ceramic Capacitors for General Purpose, 1206, 47uF, X5R, 15%, 20%, 10V","C5, C6, C7, C8, C9",FP-GRM31C-0_2-e0_3_0_8-IPC_C,C76659
+"Chip Capacitor, 100 nF, +/- 10%, 50 V, 0805 (2012 Metric)","C1, C2, C3, C4, C5, C12, C14, C15, C16, C17, C18, C19, C20, C23, C24, C25, C26, C27",CAPC2013X95X50LL10T25,C28233
+"Chip Multilayer Ceramic Capacitors for General Purpose, 1206, 47uF, X5R, 15%, 20%, 10V","C6, C7, C8, C9",FP-GRM31C-0_2-e0_3_0_8-IPC_C,C76659
 CAP CER 10UF 50V X5R 1206,"C10, C11",FP-CL31-IPC_C,C13585
 Ceramic Capacitor for Automotive 10nF  ±10% 100VDC X8R 0805 Paper T/R,C13,FP-GCM219-0_15-IPC_C,C1710
 "Chip Capacitor, 1 uF, +/- 10%, 25 V, -55 to 125 degC, 1206 (3216 Metric), RoHS, Tape and Reel","C21, C22",CAPC3216X180X50ML20T25,C1848
