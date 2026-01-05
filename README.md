@@ -40,16 +40,22 @@ GND and PWR plane are continous and unbroken providing low-impedance return path
   
 # Hardware
 ![Cell characterization board V1 2 - Top Level_page-0001](https://github.com/user-attachments/assets/958f1ddc-cff1-46bc-9eeb-34644356cadd)
-## System Architecture Summary (Click for schematic sheet on each subsection)
-### [Buck and LDO](https://github.com/user-attachments/assets/433c3e82-389d-4984-9a22-51cbf6804a1b)
-![](https://github.com/user-attachments/assets/433c3e82-389d-4984-9a22-51cbf6804a1b)
+## System Architecture Summary (Click for schematic sheet on each subsection header)
+<details>
+<summary><h3>Buck and LDO</h3></summary>
+[![Buck and LDO Schematic](https://github.com/user-attachments/assets/433c3e82-389d-4984-9a22-51cbf6804a1b)](https://github.com/user-attachments/assets/433c3e82-389d-4984-9a22-51cbf6804a1b)
+</details>
 
 - input DC Jack / XT60: 8–40 V
 - input USB-C: 5V 3A (Non-PD)
 - 5 V logic rail via AP64502QSP-13 based synchronous buck converter
 - 3.3 V low-noise LDO for MicroSD and SPI
 
-### Constant Current Sink
+<details>
+<summary><h3>Constant Current Sink</h3></summary>
+[![Constant Current Sink](https://github.com/user-attachments/assets/570f1b11-27f7-42b6-8a97-f1864ae25d66)](https://github.com/user-attachments/assets/570f1b11-27f7-42b6-8a97-f1864ae25d66)
+</details>
+
 - IRLZ44N Logic level mosfet and TLV9162 control op-amp
 - Low side 50mohm 3W shunt
 - DAC60501ZDGSR 12-bit DAC for precise control of dishcharge current and controlled via I2C
