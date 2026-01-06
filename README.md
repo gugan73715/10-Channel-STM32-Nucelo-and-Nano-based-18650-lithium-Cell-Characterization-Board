@@ -18,21 +18,21 @@ This project is a 10-channel sequential lithium-ion cell (18650) characterizatio
 The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR / SIG) optimized for high-current power handling, precision analog measurement and noise handling. GND and PWR plane are continuous and unbroken providing low-impedance return paths and a stable reference plane. Proper zoning (Analog/Digital/Power) based component placement for noise immunity and short traces. 
 ### High-Current Routing
 - All >2 A paths use wide copper pours with stitching vias if possible to distribute the current
-- All high current paths are kept as away as possible from sensitive analog traces
+- All high current paths are kept as far away as possible from sensitive analog traces
 - Relay coil and Flyback traces are kept as short as possible and fanned out to prevent noise from adjacent traces
 
 ### Analog Integrity
 - All analog traces are on top layer with a GND plane below and no via jumping
 - Analog traces are kept as short as possible, achieved by proper Analog/Digital/Power zones of component placement
-- Important analog signals are buffered and have a decoulping capacitor close to it
-- Kelvin sense is used for current and voltage measurement
+- Important analog signals are buffered and have a decoupling capacitor close to it
+- Qausi-Kelvin sense (Seperate PWR and SIG traces but shared GND) is used for current and voltage measurement
   
 ### Noise and Protection
 - Relay drive and switching currents are physically separated from the analog front-end
 - External flyback diodes placed adjacent to each relay
 - Decoupling capacitors placed close to each IC supply pin
 - Reverse polarity protection for each channel using P-channel mosfets
-- V_Cell traces are connected straight to cell holder for kelvin sense and current limiting resistor on each trace to protect the MUX in case of reverse polarity.
+- V_Cell traces are connected straight to cell holder for qausi-kelvin sense and current limiting resistor on each trace to protect the MUX in case of reverse polarity.
 - NTC on Load Mosfet's heatsink for over temperature protection as redundancy
 - 30 ms Soft start for BUCK IC to prevent overshoot and inrush current
 
@@ -44,7 +44,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 # Hardware
 ![08e247f1-ca4d-435c-84c2-786f73447f0c-0](https://github.com/user-attachments/assets/2f0dbedd-297c-4e65-9135-7c6beeae0f6e)
 
-## System Architecture Summary (Click for on subsection header for schematic sheet)
+## System Architecture Summary (Click subsection header for schematic sheet)
 <details>
 <summary><h3>Buck and LDO</h3></summary>
   
@@ -54,7 +54,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 - input DC Jack / XT60: 8–40 V
 - input USB-C: 5V 3A (Non-PD)
 - 5 V logic rail via AP64502QSP-13 based synchronous buck converter
-- 3.3 V low-noise LDO for MicroSD and SPI
+- Dedicated 3.3 V LDO for MicroSD and SPI
 
 <details>
 <summary><h3>Constant Current Sink</h3></summary>
@@ -91,7 +91,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 
 - DIY 3D printed SMD 18650 cell holders (similar to Keystone 1043) with 0.2mm nickel strips as cell contacts to save BOM cost
 - Reverse polarity protection for each channel using P-channel mosfets
-- Cell voltage sense traces are connected straight to cell holder pads for kelvin sense
+- Cell voltage sense traces are connected straight to cell holder pads for quasi-kelvin sense
 
 <details>
 <summary><h3>Sequential Cell Switching</h3></summary>
@@ -125,9 +125,10 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 </details>
 
 - Data is written to MicroSD using SPI
-- TXU0304PWR Logic shifter for 5V to 3.3V for SCK, MOSI, CS and 3.3V to 5V for MISO
+- TXU0304PWR unidirectional voltage level translator for 5V to 3.3V for SCK, MOSI, CS (MCU to MicroSD) and 3.3V to 5V for MISO (MicroSD to MCU)
 - SD detect LED for user friendliness
 - Parameters: Time, Cell Voltage, Discharge Current, Internal Resistance, I_set, Cut-off voltage and capacity (mAh / Wh)
+- Internal Resistance is calculated using r = (V_OC - V_sense)/I. (Voltage drop across cell under a load)
   
 
 
