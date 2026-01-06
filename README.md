@@ -1,8 +1,8 @@
 # Cell Characterization Board
-This project is a 10-channel sequential lithium-ion cell (18650) characterization instrument designed to measure cell voltage, discharge current, internal resistance, and capacity under a controlled constant-current load of up to 5 A. The Cell data would be displayed to a LCD and stored to a SD card which can be used to plot discharge curves using Excel/Matlab/Python. Protection features include Reverse Polarity Protection for each channel, Low voltage cut-off and hardware controlled sequential switching circuit with hardware interlock to create mutually exclusive channels.
+This project is a 10-channel sequential lithium-ion cell (18650) characterization instrument designed to measure cell voltage, discharge current, internal resistance, and capacity under a controlled constant-current load of up to 5 A. The Cell data would be displayed on an LCD and stored on a MicroSD card which can be used to plot discharge curves using Excel/Matlab/Python. Protection features include Reverse Polarity Protection for each channel, Low voltage cut-off and hardware controlled sequential switching circuit with hardware interlock to create mutually exclusive channels.
 
 ## Key design goals
-- Programable constant-current discharge
+- Programmable constant-current discharge
 - Accurate, ratiometric voltage and current measurement
 - Fault-tolerant handling of reverse polarity and missing cells
 - Sequential testing to minimize BOM cost and thermal complexity
@@ -25,15 +25,15 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 - All analog traces are on top layer with a GND plane below and no via jumping
 - Analog traces are kept as short as possible, achieved by proper Analog/Digital/Power zones of component placement
 - Important analog signals are buffered and have a decoupling capacitor close to it
-- Qausi-Kelvin sense (Seperate PWR and SIG traces but shared GND) is used for current and voltage measurement
+- Quasi-Kelvin sense (Seperate PWR and SIG traces but shared GND) is used for current and voltage measurement
   
 ### Noise and Protection
 - Relay drive and switching currents are physically separated from the analog front-end
 - External flyback diodes placed adjacent to each relay
 - Decoupling capacitors placed close to each IC supply pin
-- Reverse polarity protection for each channel using P-channel mosfets
+- Reverse polarity protection for each channel using P-channel MOSFETs
 - V_Cell traces are connected straight to cell holder for qausi-kelvin sense and current limiting resistor on each trace to protect the MUX in case of reverse polarity.
-- NTC on Load Mosfet's heatsink for over temperature protection as redundancy
+- NTC on Load MOSFET's heatsink for active over temperature protection
 - 30 ms Soft start for BUCK IC to prevent overshoot and inrush current
 
 ### Debugging
@@ -62,12 +62,12 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 [![Constant Current Sink](https://github.com/user-attachments/assets/1adb6a28-354b-4ce8-b8a3-19815ae03084)](https://github.com/user-attachments/assets/1adb6a28-354b-4ce8-b8a3-19815ae03084)
 </details>
 
-- IRLZ44N Logic level mosfet and TLV9162 control op-amp
+- IRLZ44N Logic level MOSFET and TLV9162 control op-amp
 - Low side 50mohm 3W shunt
 - DAC60501ZDGSR 12-bit DAC for precise control of discharge current and controlled via I2C
 - Internal 2.5 V precision reference of DAC is shared by ADC as well
 - Amplified I_sense signal (0 - 2.5V) using MCP6001 for better resolution
-- Theoretical mosfet temperature with heat sink (θ_normal = 2.6 C/W) at max case is 115.86 C
+- Theoretical MOSFET temperature with heat sink (θ_normal = 2.6 C/W) at max case is 115.86 C
 - Load MOSFET temperature monitoring via NTC
 - Maximum discharge current: 5 A
 
@@ -90,7 +90,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 </details>
 
 - DIY 3D printed SMD 18650 cell holders (similar to Keystone 1043) with 0.2mm nickel strips as cell contacts to save BOM cost
-- Reverse polarity protection for each channel using P-channel mosfets
+- Reverse polarity protection for each channel using MCQ7328-TP P-channel MOSFETs
 - Cell voltage sense traces are connected straight to cell holder pads for quasi-kelvin sense
 
 <details>
@@ -126,7 +126,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 
 - Data is written to MicroSD using SPI
 - TXU0304PWR unidirectional voltage level translator for 5V to 3.3V for SCK, MOSI, CS (MCU to MicroSD) and 3.3V to 5V for MISO (MicroSD to MCU)
-- SD detect LED for user friendliness
+- SD detect LED for user-friendliness
 - Parameters: Time, Cell Voltage, Discharge Current, Internal Resistance, I_set, Cut-off voltage and capacity (mAh / Wh)
 - Internal Resistance is calculated using r = (V_OC - V_sense)/I. (Voltage drop across cell under a load)
   
