@@ -6,7 +6,7 @@ This project is a 10-channel sequential lithium-ion cell (18650) characterizatio
 - Accurate, ratiometric voltage and current measurement
 - Fault-tolerant handling of reverse polarity and missing cells
 - Sequential testing to minimize BOM cost and thermal complexity
-- Hardware based protection features for relaibility and 
+- Hardware based protection features for relaibility
 - Reduce manufacturing and assembly cost as much as possbile due to budget constraint
 - Clear documentation of design intent and constraints
   
@@ -15,11 +15,9 @@ This project is a 10-channel sequential lithium-ion cell (18650) characterizatio
 ![Cell Characterization Board V1 2 3D Render - Top](https://github.com/user-attachments/assets/29e0ffa8-d2e8-4c36-aab5-d34a47237cab)
 <img width="4265" height="4019" alt="Cell Characterization Board V1 2 3D Render - Bottom" src="https://github.com/user-attachments/assets/4b63f3ed-e3a5-4549-a06e-88446abbb75f" />
 ## Overview:
-The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR / SIG) optimized for high-current power handling, precision analog measurement and noise handling.
-
-GND and PWR plane are continous and unbroken providing low-impedance return paths and a stable reference plane.
+The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR / SIG) optimized for high-current power handling, precision analog measurement and noise handling. GND and PWR plane are continous and unbroken providing low-impedance return paths and a stable reference plane. Proper zoning (Analog/Digital/Power) based component placement for noise immunity and short traces. 
 ### High-Current Routing
-- All >2 A paths use wide copper pours with stitching vias if possible to minimise voltage drop
+- All >2 A paths use wide copper pours with stitching vias if possible to distribute the current
 - All high current paths are kept as away as possible from sensitive analog traces
 - Relay coil and Flyback traces are kept as short as possible and fanned out to prevent noise from adjacent traces
 
@@ -27,7 +25,7 @@ GND and PWR plane are continous and unbroken providing low-impedance return path
 - All analog traces are on top layer with a GND plane below and no via jumping
 - Analog traces are kept as short as possible, achieved by proper Analog/Digital/Power zones of component placement
 - Important analog signals are buffered and have a decoulping capacitor close to it
-- kelving sense is used for current and voltage measurement 
+- kelving sense is used for current and voltage measurement
   
 ### Noise and Protection
 - Relay drive and switching currents are physically separated from the analog front-end
@@ -37,13 +35,20 @@ GND and PWR plane are continous and unbroken providing low-impedance return path
 - V_Cell traces are connected straight to cell holder for kelvin sense and current limiting resistor on each trace to protect the MUX in case of reverse polarity.
 - NTC on Load Mosfet's heatsink for over temprature protection as redundancy
 - 30 ms Soft start for BUCK IC to prevent overshoot and inrush current
+
+### Debugging
+- Testpoints for 5V, 3.3V, 2.5V ref, GND, I_set, Constant Current op-amp feedback line, MOSFET Gate and I_sense.
+- External UART, SPI and I2C headers for logic analysis
+- MUX-out(Cell voltage) is accesible through MCU header
   
 # Hardware
-![Cell characterization board V1 2 - Top Level_page-0001](https://github.com/user-attachments/assets/958f1ddc-cff1-46bc-9eeb-34644356cadd)
+![08e247f1-ca4d-435c-84c2-786f73447f0c-0](https://github.com/user-attachments/assets/2f0dbedd-297c-4e65-9135-7c6beeae0f6e)
+
 ## System Architecture Summary (Click for on subsection header for schematic sheet)
 <details>
 <summary><h3>Buck and LDO</h3></summary>
-[![Buck and LDO Schematic](https://github.com/user-attachments/assets/433c3e82-389d-4984-9a22-51cbf6804a1b)](https://github.com/user-attachments/assets/433c3e82-389d-4984-9a22-51cbf6804a1b)
+  
+[![Buck and LDO Schematic](https://github.com/user-attachments/assets/7cbbd1c2-d676-4704-b09d-97c5c336276e)](https://github.com/user-attachments/assets/7cbbd1c2-d676-4704-b09d-97c5c336276e)
 </details>
 
 - input DC Jack / XT60: 8–40 V
@@ -53,7 +58,8 @@ GND and PWR plane are continous and unbroken providing low-impedance return path
 
 <details>
 <summary><h3>Constant Current Sink</h3></summary>
-[![Constant Current Sink](https://github.com/user-attachments/assets/570f1b11-27f7-42b6-8a97-f1864ae25d66)](https://github.com/user-attachments/assets/570f1b11-27f7-42b6-8a97-f1864ae25d66)
+  
+[![Constant Current Sink](https://github.com/user-attachments/assets/1adb6a28-354b-4ce8-b8a3-19815ae03084)](https://github.com/user-attachments/assets/1adb6a28-354b-4ce8-b8a3-19815ae03084)
 </details>
 
 - IRLZ44N Logic level mosfet and TLV9162 control op-amp
@@ -66,9 +72,9 @@ GND and PWR plane are continous and unbroken providing low-impedance return path
 - Maximum discharge current: 5 A
 
 <details>
-
 <summary><h3>MCU</h3></summary>
-[![MCU](https://github.com/user-attachments/assets/d0f35247-9f11-4299-ac2f-d843d51ea3c3)](https://github.com/user-attachments/assets/d0f35247-9f11-4299-ac2f-d843d51ea3c3)
+
+[![MCU](https://github.com/user-attachments/assets/76e0b13c-49a7-4943-83e6-0d6fc5a95909)](https://github.com/user-attachments/assets/76e0b13c-49a7-4943-83e6-0d6fc5a95909)
 
 </details>
 
@@ -76,68 +82,53 @@ GND and PWR plane are continous and unbroken providing low-impedance return path
 - External I2C header for debugging and future expansion modules
 - External UART header for telemetry
 
-### Cell Holders
+<details>
+<summary><h3>Cell Holder</h3></summary>
+
+[![Cell Holder](https://github.com/user-attachments/assets/d6683df6-3a02-4f7b-97c8-28835414f6b9)](https://github.com/user-attachments/assets/d6683df6-3a02-4f7b-97c8-28835414f6b9)
+
+</details>
+
 - DIY 3D printed SMD 18650 cell holders (similar to Keystone 1043) with 0.2mm nickel strips as cell contacts to save BOM cost
 - Reverse polarity protection for each channel using P-channel mosfets
 - Cell voltage sense traces are connected straight to cell holder pads for kelvin sense
 
-### Sequential Cell Switching
+<details>
+<summary><h3>Sequential Cell Switching</h3></summary>
+
+[![Sequential Cell Switching](https://github.com/user-attachments/assets/236b81a5-ea0e-4242-863e-f045defb3f62)](https://github.com/user-attachments/assets/236b81a5-ea0e-4242-863e-f045defb3f62)
+
+</details>
+
 - Control Logic: MCU -> I2C Expander -> Line Decoder (For mutually exclusive channels) -> Relay Driver -> Relay -> Cell Holder
 - Relay-based physical isolation of cells driven by darlington transistor array on low side
 - PCF8575PWR I2C expander for I/O expansion
-- CD4514BM96 Line decoder to prevent connecting more than one channel at the same time and a active high inhibit pin controlled by I2C expander
+- CD4514BM96 decoder to prevent connecting more than one channel at the same time and a active high inhibit pin controlled by I2C expander
 - External pull ups on all I2C lines and external flyback diodes on all relays
 
-### Cell Monitoring
-- CD74HC4067SM96 16:1 analog MUX for cell volatage sampling
+<details>
+<summary><h3>Cell Monitoring</h3></summary>
+
+[![Cell Monitoring](https://github.com/user-attachments/assets/edf4d94d-06c7-463c-b50f-4eb45057faaf)](https://github.com/user-attachments/assets/edf4d94d-06c7-463c-b50f-4eb45057faaf)
+
+</details>
+
+- CD74HC4067SM96 16:1 analog MUX for cell voltage sampling
 - MUX out is converted to a signal of 0 to 2.5V using a voltage divider and then buffered
-- Current limiting resistor(limits to 2.1mA) on each channel to protect the MUX in case of reverse polarity (internal ESD diode forward biases)
+- Current limiting resistor(limits to 2.1mA) on each channel to protect the MUX in case of reverse polarity (MUX's internal ESD clamp diode forward biases)
 
+<details>
+<summary><h3>MicroSD</h3></summary>
 
+[![MicroSD](https://github.com/user-attachments/assets/e192b704-f8bd-455b-be3e-ed22bf27f31d)](https://github.com/user-attachments/assets/e192b704-f8bd-455b-be3e-ed22bf27f31d)
 
-Darlington relay driver arrays
+</details>
 
-External flyback diodes on all relay coils
-
-Cell Voltage Measurement
-
-Direct cell-pad Kelvin sensing
-
-16:1 analog multiplexer
-
-Series input resistors for current-limited fault handling
-
-Current Measurement
-
-Low-side shunt resistor
-
-Kelvin-style sense routing
-
-Op-amp gain stage scaled to ADC range
-
-Measured Parameters
-
-Cell voltage
-
-Discharge current
-
-Internal resistance
-
-Capacity (mAh / Wh)
-
-Communication Interfaces
-
-I²C: DAC, I/O expander
-
-SPI: MicroSD card, debug header
-
-UART: PC telemetry / debug
-
-User Interface
-
-1602 character LCD (direct MCU connection)
-
-Real-time status and measurement display
+- Data is written to MicroSD using SPI
+- TXU0304PWR Logic shifter for 5V to 3.3V for SCK, MOSI, CS and 3.3V to 5V for MISO
+- SD detect LED for user friendliness
+- Parameters: Time, Cell Voltage, Discharge Current, Internal Resistance, I_set, Cut-off voltage and capacity (mAh / Wh)
+  
 
 
 
