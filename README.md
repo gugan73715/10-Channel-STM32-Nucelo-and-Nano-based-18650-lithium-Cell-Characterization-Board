@@ -6,8 +6,8 @@ This project is a 10-channel sequential lithium-ion cell (18650) characterizatio
 - Accurate, ratiometric voltage and current measurement
 - Fault-tolerant handling of reverse polarity and missing cells
 - Sequential testing to minimize BOM cost and thermal complexity
-- Hardware based protection features for relaibility
-- Reduce manufacturing and assembly cost as much as possbile due to budget constraint
+- Hardware based protection features for reliability
+- Reduce manufacturing and assembly cost as much as possible due to budget constraint
 - Clear documentation of design intent and constraints
   
 # PCB Design:
@@ -15,7 +15,7 @@ This project is a 10-channel sequential lithium-ion cell (18650) characterizatio
 ![Cell Characterization Board V1 2 3D Render - Top](https://github.com/user-attachments/assets/29e0ffa8-d2e8-4c36-aab5-d34a47237cab)
 <img width="4265" height="4019" alt="Cell Characterization Board V1 2 3D Render - Bottom" src="https://github.com/user-attachments/assets/4b63f3ed-e3a5-4549-a06e-88446abbb75f" />
 ## Overview:
-The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR / SIG) optimized for high-current power handling, precision analog measurement and noise handling. GND and PWR plane are continous and unbroken providing low-impedance return paths and a stable reference plane. Proper zoning (Analog/Digital/Power) based component placement for noise immunity and short traces. 
+The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR / SIG) optimized for high-current power handling, precision analog measurement and noise handling. GND and PWR plane are continuous and unbroken providing low-impedance return paths and a stable reference plane. Proper zoning (Analog/Digital/Power) based component placement for noise immunity and short traces. 
 ### High-Current Routing
 - All >2 A paths use wide copper pours with stitching vias if possible to distribute the current
 - All high current paths are kept as away as possible from sensitive analog traces
@@ -25,7 +25,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 - All analog traces are on top layer with a GND plane below and no via jumping
 - Analog traces are kept as short as possible, achieved by proper Analog/Digital/Power zones of component placement
 - Important analog signals are buffered and have a decoulping capacitor close to it
-- kelving sense is used for current and voltage measurement
+- Kelvin sense is used for current and voltage measurement
   
 ### Noise and Protection
 - Relay drive and switching currents are physically separated from the analog front-end
@@ -33,13 +33,13 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 - Decoupling capacitors placed close to each IC supply pin
 - Reverse polarity protection for each channel using P-channel mosfets
 - V_Cell traces are connected straight to cell holder for kelvin sense and current limiting resistor on each trace to protect the MUX in case of reverse polarity.
-- NTC on Load Mosfet's heatsink for over temprature protection as redundancy
+- NTC on Load Mosfet's heatsink for over temperature protection as redundancy
 - 30 ms Soft start for BUCK IC to prevent overshoot and inrush current
 
 ### Debugging
 - Testpoints for 5V, 3.3V, 2.5V ref, GND, I_set, Constant Current op-amp feedback line, MOSFET Gate and I_sense.
 - External UART, SPI and I2C headers for logic analysis
-- MUX-out(Cell voltage) is accesible through MCU header
+- MUX-out(Cell voltage) is accessible through MCU header
   
 # Hardware
 ![08e247f1-ca4d-435c-84c2-786f73447f0c-0](https://github.com/user-attachments/assets/2f0dbedd-297c-4e65-9135-7c6beeae0f6e)
@@ -67,8 +67,8 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 - DAC60501ZDGSR 12-bit DAC for precise control of discharge current and controlled via I2C
 - Internal 2.5 V precision reference of DAC is shared by ADC as well
 - Amplified I_sense signal (0 - 2.5V) using MCP6001 for better resolution
-- Theoritical mosfet temprature with heat sink(θ_normal = 2.6 C/W) at max case is 115.86 C
-- Load MOSFET temprature monitoring via NTC
+- Theoretical mosfet temperature with heat sink (θ_normal = 2.6 C/W) at max case is 115.86 C
+- Load MOSFET temperature monitoring via NTC
 - Maximum discharge current: 5 A
 
 <details>
@@ -78,7 +78,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 
 </details>
 
-- Compatable with 3.3v STM32 Nucleo boards with nano connectivity and Arduiuno nano
+- Compatible with 3.3v STM32 Nucleo boards with nano connectivity like NUCLEO-L432KC and Arduino nano
 - External I2C header for debugging and future expansion modules
 - External UART header for telemetry
 
