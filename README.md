@@ -1,6 +1,7 @@
-# Cell Characterization Board
+# Cell Characterization Board V1.2
 This project is a 10-channel sequential lithium-ion cell (18650) characterization instrument designed to measure cell voltage, discharge current, internal resistance, and capacity under a controlled constant-current load of up to 5 A. The Cell data would be displayed on an LCD and stored on a MicroSD card which can be used to plot discharge curves using Excel/Matlab/Python. Protection features include Reverse Polarity Protection for each channel, Low voltage cut-off and hardware controlled sequential switching circuit with hardware interlock to create mutually exclusive channels.
 
+V1.2 serves as a validation vehicle for the custom analog front-end and discharge bus, utilizing a modular MCU architecture (Nucleo/Nano) to minimize BOM and assembly costs as well as accelerate testing. Planned V2 would be a integrated STM32G0B1CCT6 based revision with a SPI TFT display.
 ## Key design goals
 - Programmable constant-current discharge
 - Accurate, ratiometric voltage and current measurement
@@ -15,15 +16,15 @@ This project is a 10-channel sequential lithium-ion cell (18650) characterizatio
 ![Cell Characterization Board V1 2 3D Render - Top](https://github.com/user-attachments/assets/29e0ffa8-d2e8-4c36-aab5-d34a47237cab)
 <img width="4265" height="4019" alt="Cell Characterization Board V1 2 3D Render - Bottom" src="https://github.com/user-attachments/assets/4b63f3ed-e3a5-4549-a06e-88446abbb75f" />
 ## Overview:
-The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR / SIG) optimized for high-current power handling, precision analog measurement and noise handling. GND and PWR plane are continuous and unbroken providing low-impedance return paths and a stable reference plane. Proper zoning (Analog/Digital/Power) based component placement for noise immunity and short traces. 
+The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR / SIG) optimized for high-current power handling, precision analog measurement and noise handling. GND and PWR plane are continuous and unbroken providing low-impedance return paths and a stable reference plane. Proper zoning (Analog/Digital/Power) based component placement for noise immunity and short traces. Cell holders and relays are placed on both sides to decrease PCB size which helps reduce PCB manufacturing cost.
 ### High-Current Routing
 - All >2 A paths use wide copper pours with stitching vias if possible to distribute the current
 - All high current paths are kept as far away as possible from sensitive analog traces
 - Relay coil and Flyback traces are kept as short as possible and fanned out to prevent noise from adjacent traces
 
 ### Analog Integrity
-- All analog traces are on top layer with a GND plane below and no via jumping
-- Analog traces are kept as short as possible, achieved by proper Analog/Digital/Power zones of component placement
+- All analog traces are on top layer with a GND plane below them
+- Analog traces are kept as short as possible
 - Important analog signals are buffered and have a decoupling capacitor close to it
 - Quasi-Kelvin sense (Seperate PWR and SIG traces but shared GND) is used for current and voltage measurement
   
@@ -67,7 +68,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 - DAC60501ZDGSR 12-bit DAC for precise control of discharge current and controlled via I2C
 - Internal 2.5 V precision reference of DAC is shared by ADC as well
 - Amplified I_sense signal (0 - 2.5V) using MCP6001 for better resolution
-- Theoretical MOSFET temperature with heat sink (θ_normal = 2.6 C/W) at max case is 115.86 C
+- Theoretically calculated MOSFET temperature with heat sink (θ_normal = 2.6 C/W) at max case (5A) is 115.86 C
 - Load MOSFET temperature monitoring via NTC
 - Maximum discharge current: 5 A
 
