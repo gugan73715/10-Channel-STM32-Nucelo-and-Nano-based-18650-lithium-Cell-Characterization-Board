@@ -64,7 +64,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 
 - IRLZ44N Logic level mosfet and TLV9162 control op-amp
 - Low side 50mohm 3W shunt
-- DAC60501ZDGSR 12-bit DAC for precise control of dishcharge current and controlled via I2C
+- DAC60501ZDGSR 12-bit DAC for precise control of discharge current and controlled via I2C
 - Internal 2.5 V precision reference of DAC is shared by ADC as well
 - Amplified I_sense signal (0 - 2.5V) using MCP6001 for better resolution
 - Theoritical mosfet temprature with heat sink(θ_normal = 2.6 C/W) at max case is 115.86 C
