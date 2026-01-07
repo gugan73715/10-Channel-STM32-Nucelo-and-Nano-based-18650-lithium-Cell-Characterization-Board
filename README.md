@@ -1,7 +1,7 @@
 # Cell Characterization Board V1.2
 This project is a 10-channel sequential lithium-ion cell (18650) characterization instrument designed to measure cell voltage, discharge current, internal resistance, and capacity under a controlled constant-current load of up to 5 A. The Cell data would be displayed on an LCD and stored on a MicroSD card which can be used to plot discharge curves using Excel/Matlab/Python. Protection features include Reverse Polarity Protection for each channel, Low voltage cut-off and hardware controlled sequential switching circuit with hardware interlock to create mutually exclusive channels.
 
-V1.2 serves as a validation vehicle for the custom analog front-end and discharge bus, utilizing a modular MCU architecture (Nucleo/Nano) to minimize BOM and assembly costs as well as accelerate testing. Planned V2 would be a integrated STM32G0B1CCT6 based revision with a SPI TFT display.
+V1.2 serves as a validation vehicle for the custom analog front-end and discharge bus, utilizing a modular MCU architecture (Nucleo/Nano) to minimize BOM and assembly costs as well as accelerate testing. Planned V2 would be an integrated STM32G0B1CCT6 based revision with a SPI TFT display.
 ## Key design goals
 - Programmable constant-current discharge
 - Accurate, ratiometric voltage and current measurement
@@ -21,20 +21,20 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 ### High-Current Routing
 - All >2 A paths use wide copper pours with stitching vias if possible to distribute the current
 - All high current paths are kept as far away as possible from sensitive analog traces
-- Relay coil and Flyback traces are kept as short as possible and fanned out to prevent noise from adjacent traces
 
 ### Analog Integrity
 - All analog traces are on top layer with a GND plane below them
 - Analog traces are kept as short as possible
 - Important analog signals are buffered and have a decoupling capacitor close to it
-- Quasi-Kelvin sense (Seperate PWR and SIG traces but shared GND) is used for current and voltage measurement
+- Quasi-Kelvin sense (Separate PWR and SIG traces but shared GND) is used for current and voltage measurement
   
 ### Noise and Protection
 - Relay drive and switching currents are physically separated from the analog front-end
 - External flyback diodes placed adjacent to each relay
+- Relay coil and Flyback traces are kept as short as possible and fanned out to prevent noise from adjacent traces
 - Decoupling capacitors placed close to each IC supply pin
 - Reverse polarity protection for each channel using P-channel MOSFETs
-- V_Cell traces are connected straight to cell holder for qausi-kelvin sense and current limiting resistor on each trace to protect the MUX in case of reverse polarity.
+- V_Cell traces are connected straight to cell holder for Qausi-kelvin sense and current limiting resistor on each trace to protect the MUX in case of reverse polarity.
 - NTC on Load MOSFET's heatsink for active over temperature protection
 - 30 ms Soft start for BUCK IC to prevent overshoot and inrush current
 
@@ -44,7 +44,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 - MUX-out(Cell voltage) is accessible through MCU header
 
 ### Assembly & Cost Optimization
-- 5 channels was placed on top and bottom to reduce PCB size and save fabrication costs
+- 5 channels were placed on top and bottom to reduce PCB size and save fabrication costs
 - Passive components are assembled by fabrication house and all of them have been placed on top for one sided assembly
 - Active ICs, cell holders and connectors are hand-assembled post-fabrication to reduce assembly cost while retaining full control over critical components
 
@@ -74,7 +74,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 - DAC60501ZDGSR 12-bit DAC for precise control of discharge current and controlled via I2C
 - Internal 2.5 V precision reference of DAC is shared by ADC as well
 - Amplified I_sense signal (0 - 2.5V) using MCP6001 for better resolution
-- Theoretically calculated MOSFET temperature with heat sink (θ_normal = 2.6 C/W) at max case (5A) is 115.86 C
+- Theoretically MOSFET temperature with heat sink (θ_normal = 2.6 C/W) at max case (5A) is 115.86 C
 - Load MOSFET temperature monitoring via NTC
 - Maximum discharge current: 5 A
 
@@ -110,7 +110,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 - Control Logic: MCU -> I2C Expander -> Line Decoder (For mutually exclusive channels) -> Relay Driver -> Relay -> Cell Holder
 - Relay-based physical isolation of cells driven by darlington transistor array on low side
 - PCF8575PWR I2C expander for I/O expansion
-- CD4514BM96 decoder to prevent connecting more than one channel at the same time and a active high inhibit pin controlled by I2C expander
+- CD4514BM96 decoder to prevent connecting more than one channel at the same time and an active high inhibit pin controlled by I2C expander
 - External pull ups on all I2C lines and external flyback diodes on all relays
 
 <details>
@@ -137,7 +137,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 - Parameters: Time, Cell Voltage, Discharge Current, Internal Resistance, I_set, Cut-off voltage and capacity (mAh / Wh)
 - Internal Resistance is calculated using r = (V_OC - V_sense)/I. (Voltage drop across cell under a load)
 
-## Prototyping and validation:
+## Prototyping and Validation:
 
 ### LTspice simulation: (Constant Current Sink)
 <img width="1542" height="707" alt="Screenshot 2026-01-06 123358" src="https://github.com/user-attachments/assets/46b6fb00-8493-47e5-822a-310cfd7fd405" />
@@ -156,7 +156,7 @@ Measured discharge current remained approximately constant (~340 mA) across the 
 
 # Firmware
 
-- Initial firmware under development using using Arduino IDE for rapid bring-up
+- Initial firmware under development using Arduino IDE for rapid bring-up
 - Secondary firmware planned using STM32CubeIDE with STM32HAL and testing using an STM32 Nucleo board
 
 ### Objectives:
@@ -170,9 +170,9 @@ Measured discharge current remained approximately constant (~340 mA) across the 
 
 - Transitioning to a STM32G0B1CCT6 onboard MCU
 - Switching to SPI-based TFT display for real-time visualization
-- Swithcing to Zero-drift, ultra-low-offset op-amp for better accuracy
-- NTC on each channel for cell temprature monitoring
-- Short-circuit and overtemprature protection for each channel 
+- Switching to Zero-drift, ultra-low-offset op-amp for better accuracy
+- NTC on each channel for cell temperature monitoring
+- Short-circuit and overtemperature protection for each channel 
 - Firmware detection of protection features and informing the user
 - Audible and visual fault and status indication (buzzer and status LEDs)
   
