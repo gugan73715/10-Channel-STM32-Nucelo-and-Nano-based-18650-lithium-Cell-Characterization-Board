@@ -2,6 +2,11 @@
 This project is a 10-channel sequential lithium-ion cell (18650) characterization instrument designed to measure cell voltage, discharge current, internal resistance, and capacity under a controlled constant-current load of up to 5 A. The Cell data would be displayed on an LCD and stored on a MicroSD card which can be used to plot discharge curves using Excel/Matlab/Python. Protection features include Reverse Polarity Protection for each channel, Low voltage cut-off and hardware controlled sequential switching circuit with hardware interlock to create mutually exclusive channels.
 
 V1.2 serves as a validation vehicle for the custom analog front-end and discharge bus, utilizing a modular MCU architecture (Nucleo/Nano) to minimize BOM and assembly costs as well as accelerate testing. Planned V2 would be an integrated STM32G0B1CCT6 based revision with a SPI TFT display.
+
+## Primary Use Case
+
+This system is designed to characterize and screen individual lithium-ion cells prior to adding it into a battery pack for UBC Rocket's Cloudburst rocket. This allows to exclude defective, mismatched, or degraded cells before battery pack assembly. It also helps prevent cell imbalance in series strings, individual cells overheating during discharge and reduced pack capacity due to lower cell capacity. This device could also be used in other projects involving high-energy battery systems such as Student Formula SAE electric vehicles, solar car teams, and any project requiring testing and characterization of large numbers of lithium-ion cells prior to pack assembly. 
+
 ## Key design goals
 - Programmable constant-current discharge
 - Accurate, ratiometric voltage and current measurement
