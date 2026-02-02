@@ -21,6 +21,11 @@ This system is designed to characterize and screen individual lithium-ion cells 
 ## Latest 3D Render:
 ![Cell Characterization Board V1 2 3D Render - Top](https://github.com/user-attachments/assets/29e0ffa8-d2e8-4c36-aab5-d34a47237cab)
 <img width="4265" height="4019" alt="Cell Characterization Board V1 2 3D Render - Bottom" src="https://github.com/user-attachments/assets/4b63f3ed-e3a5-4549-a06e-88446abbb75f" />
+
+## System Validation & Discharge Data:
+![CELL ID 3](https://github.com/user-attachments/assets/dfa897fc-4fd2-434a-9754-ce8ace231c89)
+Full discharge curve of a Sony VTC4 cell generated using the cell data from V1.2 10-channel tester, ploted using MATLAB. The system maintained a stable 1.5A constant current discharge, yielding a capacity measurement that matched the manufacturer's datasheet within 5% and a DCIR of 33mohm. This data confirms the precision of the op-amp control loop over a full discharge cycle and MOSFET maintained a approximate 45-50C temperature.
+
 ## Overview:
 The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR / SIG) optimized for high-current power handling, precision analog measurement and noise handling. GND and PWR plane are continuous and unbroken providing low-impedance return paths and a stable reference plane. Proper zoning (Analog/Digital/Power) based component placement for noise immunity and short traces. Cell holders and relays are placed on both sides to decrease PCB size which helps reduce PCB manufacturing cost.
 ### High-Current Routing
