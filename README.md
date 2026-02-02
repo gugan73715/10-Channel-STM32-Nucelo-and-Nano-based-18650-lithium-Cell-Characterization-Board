@@ -137,7 +137,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 <details>
 <summary><h3>MicroSD</h3></summary>
 
-[![MicroSD](https://github.com/user-attachments/assets/e192b704-f8bd-455b-be3e-ed22bf27f31d)](https://github.com/user-attachments/assets/e192b704-f8bd-455b-be3e-ed22bf27f31d)
+[![MicroSD](https://github.com/user-attachments/assets/2866bfb3-0861-4d20-aa4e-4b10ece4d7fd)](https://github.com/user-attachments/assets/2866bfb3-0861-4d20-aa4e-4b10ece4d7fd)
 
 </details>
 
