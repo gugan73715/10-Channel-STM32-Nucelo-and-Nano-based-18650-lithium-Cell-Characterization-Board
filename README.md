@@ -120,7 +120,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 </details>
 
 - Control Logic: MCU -> I2C Expander -> Line Decoder (For mutually exclusive channels) -> Relay Driver -> Relay -> Cell Holder
-- Relay-based physical isolation of cells driven by darlington transistor array on low side
+- Relay-based physical isolation of cells driven by darlington transistor array on High side
 - PCF8575PWR I2C expander for I/O expansion
 - CD4514BM96 decoder to prevent connecting more than one channel at the same time and an active high inhibit pin controlled by I2C expander
 - External pull ups on all I2C lines and external flyback diodes on all relays
