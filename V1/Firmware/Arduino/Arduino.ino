@@ -9,7 +9,7 @@
 // rs, en, d4, d5, d6, d7
 // These pin numbers are common, but adjust them if you wired the LCD differently.
 const int rs = 13, en = 11, d4 = 7, d5 = 8, d6 = 9, d7 = 10;
-LiquidCrystal lcd(rs, en, d4, d5, d6, d7);
+LiquidCrystal lcd(LCD_RS, LCD_EN, d4, d5, d6, d7);
 
 // --- Variables to hold the data you want to display ---
 // You would replace these with sensor readings or user inputs in a real application.
