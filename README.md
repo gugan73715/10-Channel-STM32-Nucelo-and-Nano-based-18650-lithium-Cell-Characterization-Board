@@ -21,6 +21,13 @@ This system is designed to characterize and screen individual lithium-ion cells 
 ## Latest 3D Render:
 ![Cell Characterization Board V1 2 3D Render - Top](https://github.com/user-attachments/assets/29e0ffa8-d2e8-4c36-aab5-d34a47237cab)
 <img width="4265" height="4019" alt="Cell Characterization Board V1 2 3D Render - Bottom" src="https://github.com/user-attachments/assets/4b63f3ed-e3a5-4549-a06e-88446abbb75f" />
+## V1.2:
+![IMG_2725](https://github.com/user-attachments/assets/c27dc474-c327-4732-a6f4-5caad4d582f8)
+
+## System Validation & Discharge Data:
+![CELL ID 3](https://github.com/user-attachments/assets/dfa897fc-4fd2-434a-9754-ce8ace231c89)
+Full discharge curve of a Sony VTC4 cell generated using the cell data from V1.2 10-channel tester, ploted using MATLAB. The system maintained a stable 1.5A constant current discharge, yielding a capacity measurement that matched the manufacturer's datasheet within 5% and a DCIR of 33mohm. This data confirms the precision of the op-amp control loop over a full discharge cycle and MOSFET maintained a approximate 45-50C temperature.
+
 ## Overview:
 The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR / SIG) optimized for high-current power handling, precision analog measurement and noise handling. GND and PWR plane are continuous and unbroken providing low-impedance return paths and a stable reference plane. Proper zoning (Analog/Digital/Power) based component placement for noise immunity and short traces. Cell holders and relays are placed on both sides to decrease PCB size which helps reduce PCB manufacturing cost.
 ### High-Current Routing
@@ -113,7 +120,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 </details>
 
 - Control Logic: MCU -> I2C Expander -> Line Decoder (For mutually exclusive channels) -> Relay Driver -> Relay -> Cell Holder
-- Relay-based physical isolation of cells driven by darlington transistor array on low side
+- Relay-based physical isolation of cells driven by darlington transistor array on High side
 - PCF8575PWR I2C expander for I/O expansion
 - CD4514BM96 decoder to prevent connecting more than one channel at the same time and an active high inhibit pin controlled by I2C expander
 - External pull ups on all I2C lines and external flyback diodes on all relays
@@ -132,7 +139,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 <details>
 <summary><h3>MicroSD</h3></summary>
 
-[![MicroSD](https://github.com/user-attachments/assets/e192b704-f8bd-455b-be3e-ed22bf27f31d)](https://github.com/user-attachments/assets/e192b704-f8bd-455b-be3e-ed22bf27f31d)
+[![MicroSD](https://github.com/user-attachments/assets/2866bfb3-0861-4d20-aa4e-4b10ece4d7fd)](https://github.com/user-attachments/assets/2866bfb3-0861-4d20-aa4e-4b10ece4d7fd)
 
 </details>
 
@@ -161,8 +168,8 @@ Measured discharge current remained approximately constant (~340 mA) across the 
 
 # Firmware
 
-- Initial firmware under development using Arduino IDE for rapid bring-up
-- Secondary firmware planned using STM32CubeIDE with STM32HAL and testing using an STM32 Nucleo board
+- Initial firmware developed using Arduino IDE for rapid bring-up
+- Secondary firmware under development using STM32CubeIDE with STM32HAL and testing using an NUCLEO-G431KB
 
 ### Objectives:
 
@@ -171,7 +178,7 @@ Measured discharge current remained approximately constant (~340 mA) across the 
 - Verify ADC and DAC resolution using the shared 2.5 V reference
 - Validation of current measurement accuracy and stability across the full discharge range
 
-# Planned Revision (V2): (Production oriented version)
+# Planned Revision (V2):
 
 - Transitioning to a STM32G0B1CCT6 onboard MCU
 - Switching to SPI-based TFT display for real-time visualization
