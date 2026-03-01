@@ -93,7 +93,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 <details>
 <summary><h3>MCU</h3></summary>
 
-[![MCU](https://github.com/user-attachments/assets/76e0b13c-49a7-4943-83e6-0d6fc5a95909)](https://github.com/user-attachments/assets/76e0b13c-49a7-4943-83e6-0d6fc5a95909)
+[![MCU](https://github.com/user-attachments/assets/0a89f7f0-6815-4320-b8e9-275b107875d0)](https://github.com/user-attachments/assets/0a89f7f0-6815-4320-b8e9-275b107875d0)
 
 </details>
 
@@ -115,7 +115,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 <details>
 <summary><h3>Sequential Cell Switching</h3></summary>
 
-[![Sequential Cell Switching](https://github.com/user-attachments/assets/236b81a5-ea0e-4242-863e-f045defb3f62)](https://github.com/user-attachments/assets/236b81a5-ea0e-4242-863e-f045defb3f62)
+[![Sequential Cell Switching](https://github.com/user-attachments/assets/1cc9c982-065a-40d1-963c-5ec4ebc452d4)](https://github.com/user-attachments/assets/1cc9c982-065a-40d1-963c-5ec4ebc452d4)
 
 </details>
 
@@ -139,7 +139,7 @@ The system is implemented on a custom 4-layer mixed-signal PCB (SIG / GND / PWR 
 <details>
 <summary><h3>MicroSD</h3></summary>
 
-[![MicroSD](https://github.com/user-attachments/assets/2866bfb3-0861-4d20-aa4e-4b10ece4d7fd)](https://github.com/user-attachments/assets/2866bfb3-0861-4d20-aa4e-4b10ece4d7fd)
+[![MicroSD](https://github.com/user-attachments/assets/78fb6a4d-2293-464c-a3f9-e3ed3d292f46)](https://github.com/user-attachments/assets/78fb6a4d-2293-464c-a3f9-e3ed3d292f46)
 
 </details>
 
