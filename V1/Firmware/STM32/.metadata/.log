@@ -1,0 +1,172 @@
+!SESSION 2026-03-05 17:52:40.412 -----------------------------------------------
+eclipse.buildId=Version 2.0.0
+java.version=21.0.8
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_CA
+Framework arguments:  C:\Users\gugan\OneDrive - UBC\Documents\GitHub\Cell-Characterization-Board\V1\Firmware\STM32\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\gugan\OneDrive - UBC\Documents\GitHub\Cell-Characterization-Board\V1\Firmware\STM32\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2026-03-05 17:53:16.724
+!MESSAGE Log4j2 initialized with config file C:\Users\gugan\OneDrive - UBC\Documents\GitHub\Cell-Characterization-Board\V1\Firmware\STM32\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2026-03-05 17:53:19.313
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-05 17:53:33.711
+!MESSAGE Indexed 'Udemy Mastering stm32cubemx' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-05 17:53:37.274
+!MESSAGE Indexed 'LED-G431-KB' (22 sources, 143 headers) in 2.62 sec: 14,095 declarations; 65,038 references; 7 unresolved inclusions; 77 syntax errors; 1,336 unresolved names (1.7%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-05 17:53:39.374
+!MESSAGE Indexed 'PWM' (21 sources, 114 headers) in 1.09 sec: 11,857 declarations; 62,624 references; 3 unresolved inclusions; 46 syntax errors; 171 unresolved names (0.23%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-05 17:53:40.159
+!MESSAGE Indexed 'TimerOutputCompare' (21 sources, 60 headers) in 0.772 sec: 9,359 declarations; 50,744 references; 31 unresolved inclusions; 1,230 syntax errors; 7,198 unresolved names (11%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-05 17:53:41.931
+!MESSAGE Indexed 'Timers' (19 sources, 64 headers) in 1.12 sec: 9,793 declarations; 47,214 references; 22 unresolved inclusions; 1,141 syntax errors; 9,238 unresolved names (14%)
+
+!ENTRY org.eclipse.ltk.ui.refactoring 4 10000 2026-03-05 17:53:55.151
+!MESSAGE Internal Error
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException: Problems encountered while deleting resources.
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:816)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:359)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:150)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:247)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:284)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:210)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+Contains: Error deleting resource '/Udemy Mastering stm32cubemx' from the workspace tree.
+org.eclipse.core.internal.resources.ResourceException(/Udemy Mastering stm32cubemx)[569]: java.lang.Exception: Could not delete metadata for '/Udemy Mastering stm32cubemx'.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.LocalMetaArea.delete(LocalMetaArea.java:121)
+	at org.eclipse.core.internal.resources.Project.deleteResource(Project.java:374)
+	at org.eclipse.core.internal.resources.ResourceTree.deletedProject(ResourceTree.java:179)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:889)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1834)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:803)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:359)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:150)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:247)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:284)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:210)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+!SUBENTRY 1 org.eclipse.core.resources 1 273 2026-03-05 17:53:55.156
+!MESSAGE Problems encountered while deleting resources.
+!SUBENTRY 2 org.eclipse.core.resources 1 4 2026-03-05 17:53:55.156
+!MESSAGE Error deleting resource '/Udemy Mastering stm32cubemx' from the workspace tree.
+!STACK 1
+org.eclipse.core.internal.resources.ResourceException(/Udemy Mastering stm32cubemx)[569]: java.lang.Exception: Could not delete metadata for '/Udemy Mastering stm32cubemx'.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.LocalMetaArea.delete(LocalMetaArea.java:121)
+	at org.eclipse.core.internal.resources.Project.deleteResource(Project.java:374)
+	at org.eclipse.core.internal.resources.ResourceTree.deletedProject(ResourceTree.java:179)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:889)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1834)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:803)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:359)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:150)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:247)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:284)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:210)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+!SUBENTRY 3 org.eclipse.core.resources 4 569 2026-03-05 17:53:55.156
+!MESSAGE Could not delete metadata for '/Udemy Mastering stm32cubemx'.
+!STACK 0
+java.lang.Exception: Could not delete metadata for '/Udemy Mastering stm32cubemx'.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.LocalMetaArea.delete(LocalMetaArea.java:121)
+	at org.eclipse.core.internal.resources.Project.deleteResource(Project.java:374)
+	at org.eclipse.core.internal.resources.ResourceTree.deletedProject(ResourceTree.java:179)
+	at org.eclipse.core.internal.resources.ResourceTree.standardDeleteProject(ResourceTree.java:889)
+	at org.eclipse.core.internal.resources.Resource.unprotectedDelete(Resource.java:1834)
+	at org.eclipse.core.internal.resources.Resource.delete(Resource.java:803)
+	at org.eclipse.core.internal.resources.Project.delete(Project.java:359)
+	at org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange.perform(DeleteResourceChange.java:150)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.CompositeChange.perform(CompositeChange.java:278)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.lambda$0(PerformChangeOperation.java:247)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.executeChange(PerformChangeOperation.java:284)
+	at org.eclipse.ltk.internal.ui.refactoring.UIPerformChangeOperation.executeChange(UIPerformChangeOperation.java:94)
+	at org.eclipse.ltk.core.refactoring.PerformChangeOperation.run(PerformChangeOperation.java:210)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ltk.internal.ui.refactoring.WorkbenchRunnableAdapter.run(WorkbenchRunnableAdapter.java:89)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+
+!ENTRY org.eclipse.core.resources 4 368 2026-03-05 17:53:58.229
+!MESSAGE Resource '/Udemy Mastering stm32cubemx' does not exist.
+!STACK 0
+java.lang.Exception: Resource '/Udemy Mastering stm32cubemx' does not exist.
+	at org.eclipse.core.internal.resources.ResourceException.provideStackTrace(ResourceException.java:42)
+	at org.eclipse.core.internal.resources.ResourceException.<init>(ResourceException.java:38)
+	at org.eclipse.core.internal.resources.Resource.checkExists(Resource.java:364)
+	at org.eclipse.core.internal.resources.Project.open(Project.java:1069)
+	at org.eclipse.core.internal.resources.Project.open(Project.java:1192)
+	at com.st.stm32cube.ide.mcu.ide.ui.project.internal.MCUProjectImporter$ProjectOperation.execute(MCUProjectImporter.java:189)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.lambda$0(WorkspaceModifyOperation.java:112)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2451)
+	at org.eclipse.core.internal.resources.Workspace.run(Workspace.java:2476)
+	at org.eclipse.ui.actions.WorkspaceModifyOperation.run(WorkspaceModifyOperation.java:131)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:124)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-05 17:53:59.658
+!MESSAGE Indexed 'Udemy Mastering stm32cubemx' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-03-05 17:54:05.051
+!MESSAGE Executed PowerShell command powershell.exe -Command "Get-CimInstance -ClassName Win32_SerialPort | Select-Object -ExpandProperty DeviceID":
+COM3
+COM4
+
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-03-05 17:54:05.051
+!MESSAGE port: COM3
+
+!ENTRY com.st.stm32cube.ide.mpu.remote.serial 1 1 2026-03-05 17:54:05.052
+!MESSAGE port: COM4
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-05 17:55:10.616
+!MESSAGE Indexed 'LED-G431-KB' (21 sources, 114 headers) in 0.958 sec: 11,851 declarations; 62,589 references; 3 unresolved inclusions; 46 syntax errors; 171 unresolved names (0.23%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-05 17:55:11.409
+!MESSAGE Indexed 'PWM' (21 sources, 114 headers) in 0.79 sec: 11,857 declarations; 62,624 references; 3 unresolved inclusions; 46 syntax errors; 171 unresolved names (0.23%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-05 17:55:12.136
+!MESSAGE Indexed 'TimerOutputCompare' (21 sources, 114 headers) in 0.718 sec: 11,859 declarations; 62,860 references; 3 unresolved inclusions; 46 syntax errors; 171 unresolved names (0.23%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-05 17:55:12.920
+!MESSAGE Indexed 'Timers' (19 sources, 73 headers) in 0.778 sec: 10,504 declarations; 58,910 references; 1 unresolved inclusions; 91 syntax errors; 238 unresolved names (0.34%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2026-03-05 17:55:12.921
+!MESSAGE Indexed 'Udemy Mastering stm32cubemx' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
